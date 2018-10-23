@@ -1,0 +1,7 @@
+{
+  "name": "blockchainTest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
