@@ -1,3 +1,5 @@
+import { RolePage } from './../pages/role/role';
+import { PopoverPage } from './../pages/popover/popover';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ModalPage } from './../pages/modal/modal';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,19 +17,28 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   declarations: [
     MyApp,
     HomePage,
-    ModalPage
+    ModalPage,
+    PopoverPage,
+    RolePage
   ],
   imports: [
     BrowserModule,   
     HttpClientModule ,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      modalEnter: 'modal-slide-in',
+      modalLeave: 'modal-slide-out',
+      spinner:'dots'
+      
+    }),
     BrowserAnimationsModule       
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ModalPage
+    ModalPage ,
+     PopoverPage,
+    RolePage
   ],
   providers: [
     StatusBar,

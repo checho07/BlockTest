@@ -1,17 +1,33 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar  class="bgNavbar">
+        <button ion-button  menuToggle   >            
+            <ion-icon name="menu" ></ion-icon>
+          </button>
+      <ion-title>
+       Block U
+      </ion-title>      
+      <ion-buttons end>        
+          <button ion-button icon-only (click)="presentPopover($event)">
+            <ion-icon name="more"></ion-icon>
+          </button>      
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
 
-<ion-content padding>
+<ion-content padding color="primary" >
+    <ion-segment [(ngModel)]="icons" color="primary">
+        <ion-segment-button value="camera" >
+          Estudiante
+        </ion-segment-button>
+        <ion-segment-button value="bookmark" >
+         Docente
+        </ion-segment-button >
+      </ion-segment>
 <h1>Blockchain / ABCI</h1>
 
 <button mat-button>Click me!</button>
-<div *ngFor="let b of buttons">
-  <button ion-button block (click)="abrirPagina(b)">
+<div *ngFor="let b of buttons" >
+  <button ion-button block (click)="abrirPagina(b)"  >
     
     {{b.name}}</button>
 </div>  
