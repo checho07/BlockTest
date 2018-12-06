@@ -1,5 +1,4 @@
 import { PopoverPage } from './../popover/popover';
-import { StatusBar } from '@ionic-native/status-bar';
 import { ModalPage } from './../modal/modal';
 import { AbciProvider } from './../../providers/abci/abci';
 import { Component } from '@angular/core';
@@ -11,10 +10,7 @@ import { NavController, ModalController, PopoverController, ViewController } fro
 })
 export class HomePage {
   todo = {}
-  icons:any = 'camera';
-  logForm() {
-    console.log(this.todo)
-  }
+  icons:any = 'camera';  
 
   buttons = [
     {name:"ABCI INFO", trans:"abci_info", verb:1 },
@@ -27,18 +23,14 @@ export class HomePage {
   ]
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
-              private statusBar: StatusBar,
               public popoverCtrl: PopoverController) {
-    this.statusBar.overlaysWebView(false);
-    this.statusBar.backgroundColorByHexString('#007ac1');
-    this.statusBar.hide();
+  
   }
 
  
   abrirPagina(data){
     let profileModal = this.modalCtrl.create(ModalPage, { data:data },{showBackdrop:true});
     profileModal.present();
-
     profileModal.onDidDismiss(()=>{
       console.log("dismissed");
     })
@@ -49,5 +41,5 @@ export class HomePage {
       ev: myEvent
     });
   }
-  
+
 }

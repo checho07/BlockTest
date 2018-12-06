@@ -1,27 +1,24 @@
-import { DocentePage } from './../docente/docente';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the RolePage page.
+ * Generated class for the EstudiantePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-role',
-  templateUrl: 'role.html',
+  selector: 'page-estudiante',
+  templateUrl: 'estudiante.html',
 })
-export class RolePage {
+export class EstudiantePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RolePage');
+    console.log('ionViewDidLoad EstudiantePage');
   }
-  openDocente(){
-    this.navCtrl.setRoot(DocentePage);
-  }
+
 }

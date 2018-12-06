@@ -1,3 +1,31 @@
 page-role {
-
+  
 }
+
+.card-background-page {
+
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+  
+    .card-title {
+      background-color: rgba($color: #000000, $alpha: 0.6);
+      height: 50%;
+      position: absolute;
+      top: 80%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: rgba($color: #ffffff, $alpha: 0.6);
+    }
+  
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+  
+  }

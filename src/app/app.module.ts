@@ -1,3 +1,4 @@
+import { DocentePage } from './../pages/docente/docente';
 import { RolePage } from './../pages/role/role';
 import { PopoverPage } from './../pages/popover/popover';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -10,7 +11,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AbciProvider } from '../providers/abci/abci';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ElasticHeaderModule } from "ionic2-elastic-header/dist";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+
+export const FIREBASE_CONFIG = {   
+apiKey: "AIzaSyDsEYgQh2-LTHMK38g2BHmD4WMWb6bO3rs",
+authDomain: "blocku-1ae91.firebaseapp.com",
+databaseURL: "https://blocku-1ae91.firebaseio.com",
+projectId: "blocku-1ae91",
+storageBucket: "blocku-1ae91.appspot.com",
+messagingSenderId: "501644450496"};
 
 
 @NgModule({
@@ -19,26 +31,32 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HomePage,
     ModalPage,
     PopoverPage,
-    RolePage
+    RolePage,
+    DocentePage
   ],
   imports: [
     BrowserModule,   
     HttpClientModule ,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFirestoreModule,
     IonicModule.forRoot(MyApp,{
       modalEnter: 'modal-slide-in',
       modalLeave: 'modal-slide-out',
-      spinner:'dots'
+      spinner:'dots',
+      pageTransition:'wp-transition'
       
     }),
-    BrowserAnimationsModule       
+    ElasticHeaderModule 
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ModalPage ,
-     PopoverPage,
-    RolePage
+    PopoverPage,
+    RolePage,
+    DocentePage
   ],
   providers: [
     StatusBar,
