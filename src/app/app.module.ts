@@ -1,6 +1,8 @@
+import { ModalMateriasPage } from './../modals/modal-materias/modal-materias';
+import { CustomLoadingComponent } from './../components/custom-loading/custom-loading';
+import { PopoverPage } from './../popovers/popover';
 import { DocentePage } from './../pages/docente/docente';
 import { RolePage } from './../pages/role/role';
-import { PopoverPage } from './../pages/popover/popover';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ModalPage } from './../pages/modal/modal';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +16,8 @@ import { AbciProvider } from '../providers/abci/abci';
 import { ElasticHeaderModule } from "ionic2-elastic-header/dist";
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+
 
 
 export const FIREBASE_CONFIG = {   
@@ -32,7 +36,9 @@ messagingSenderId: "501644450496"};
     ModalPage,
     PopoverPage,
     RolePage,
-    DocentePage
+    DocentePage,
+    ModalMateriasPage,
+    CustomLoadingComponent
   ],
   imports: [
     BrowserModule,   
@@ -56,14 +62,17 @@ messagingSenderId: "501644450496"};
     ModalPage ,
     PopoverPage,
     RolePage,
-    DocentePage
+    DocentePage,
+    ModalMateriasPage,
+    CustomLoadingComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AbciProvider,
-    HttpClient
+    HttpClient,
+    CustomLoadingComponent
   ]
 })
 export class AppModule {}

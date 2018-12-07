@@ -7,7 +7,7 @@
         </button>
     <ion-title>Docente</ion-title>
     <ion-buttons end>   
-        <button ion-button icon-only (click)="presentPopover($event)">
+        <button ion-button icon-only (click)="openModalMaterias()">
             <ion-icon name="add"></ion-icon>
           </button>    
           <button ion-button icon-only (click)="presentPopover($event)">
@@ -23,7 +23,7 @@
 </ion-header>
 
 
-<ion-content padding fullscreen #ioncontentID> 
+<ion-content padding fullscreen #ioncontentID > 
 
 
     <ion-segment [(ngModel)]="segmentDocente" color="primary" (ionChange)="segmentChanged($event)">

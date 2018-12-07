@@ -1,4 +1,4 @@
-import { PopoverPage } from './../popover/popover';
+import { PopoverPage } from '../../popovers/popover';
 import { ModalPage } from './../modal/modal';
 import { AbciProvider } from './../../providers/abci/abci';
 import { Component } from '@angular/core';
