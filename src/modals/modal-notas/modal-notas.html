@@ -1,0 +1,69 @@
+<ion-header [elasticHeader]="ioncontentID">
+  <ion-navbar>      
+    <ion-title> {{title}}</ion-title>
+    <ion-buttons end>   
+        <!-- <button ion-button icon-only (click)="openModalMaterias()">
+            <i class="material-icons">save</i>
+          </button>     -->
+          
+        <button ion-button icon-only (click)="dismiss()">
+          <ion-icon name="close"></ion-icon>
+        </button>      
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding fullscreen #ioncontentID>
+
+  <ion-segment [(ngModel)]="segmentNotas" color="primary" (ionChange)="segmentChanged($event)">
+         
+    <ion-segment-button value="datos">
+      Notas
+    </ion-segment-button>
+    <ion-segment-button value="notas"  >
+      Datos
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="segment"  >
+      <form [formGroup]="asignatura" (ngSubmit)="asignaturaForm()">
+          <ion-item>
+              <ion-label>Nombre</ion-label>
+              <ion-input type="text" formControlName="nombre"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Grupo</ion-label>
+              <ion-input type="number" formControlName="grupo"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Descripcion</ion-label>
+              <ion-textarea formControlName="descripcion" ></ion-textarea>
+          </ion-item> 
+
+           <button ion-button type="submit" [disabled]="true" block>Guardar</button>
+      </form>
+  </div>
+<div *ngIf="!segment">
+    <ion-list>
+        <ion-item (click)="notasAlert(data.estudiantes[0])">
+          <ion-avatar item-start>
+            <img src="../../assets/imgs/avatar-rey.png">
+          </ion-avatar>
+          <h2>{{data.estudiantes[0].nombre}}</h2>
+          <h3>{{data.estudiantes[0].cedula}}</h3>
+          <p>Estudiante de Ingenieria de Sistemas</p>
+        </ion-item>
+        <ion-item (click)="notasAlert(data.estudiantes[1])">
+            <ion-avatar item-start>
+              <img src="../../assets/imgs/avatar-luke.png">
+            </ion-avatar>
+            <h2>{{data.estudiantes[1].nombre}}</h2>
+            <h3>{{data.estudiantes[1].cedula}}</h3>
+            <p>Estudiante de Ingenieria de Sistemas</p>
+          </ion-item>
+      </ion-list>
+</div>
+</ion-content>

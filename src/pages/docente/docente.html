@@ -2,21 +2,25 @@
 <ion-header [elasticHeader]="ioncontentID">
 
   <ion-navbar>
-      <button ion-button  menuToggle   >            
-          <ion-icon name="menu" ></ion-icon>
-        </button>
-    <ion-title>Docente</ion-title>
-    <ion-buttons end>   
-        <button ion-button icon-only (click)="openModalMaterias()">
-            <ion-icon name="add"></ion-icon>
-          </button>    
-          <button ion-button icon-only (click)="presentPopover($event)">
-              <ion-icon name="search"></ion-icon>
-            </button>       
-        <button ion-button icon-only (click)="presentPopover($event)">
-          <ion-icon name="more"></ion-icon>
-        </button>      
-      </ion-buttons>
+    
+      
+          <button ion-button  menuToggle   >            
+              <ion-icon name="menu" ></ion-icon>
+            </button>
+        <ion-title>Docente</ion-title>
+        <ion-buttons end>   
+            <button ion-button icon-only (click)="openModalMaterias()">
+                <ion-icon name="add"></ion-icon>
+              </button>    
+              <!-- <button ion-button icon-only (click)="searchFn($event)">
+                  <ion-icon name="search"></ion-icon>
+                </button>        -->
+            <button ion-button icon-only (click)="presentPopover($event)">
+              <ion-icon name="more"></ion-icon>
+            </button>      
+          </ion-buttons>
+      
+ 
       
   </ion-navbar>
 
@@ -24,9 +28,8 @@
 
 
 <ion-content padding fullscreen #ioncontentID > 
-
-
-    <ion-segment [(ngModel)]="segmentDocente" color="primary" (ionChange)="segmentChanged($event)">
+   
+    <!-- <ion-segment [(ngModel)]="segmentDocente" color="primary" (ionChange)="segmentChanged($event)">
          
         <ion-segment-button value="asignaturas">
           Asignaturas
@@ -34,15 +37,18 @@
         <ion-segment-button value="notas">
           Notas
         </ion-segment-button>
-      </ion-segment>
+      </ion-segment> -->
     
                 <div *ngIf="segment" >
-                  <ion-card  *ngFor="let materia of materias " >
+
+                    <ion-searchbar autocomplete='on' showCancelButton ='true' (ionCancel)="onCancel($event)" (ionInput)="getItems($event)" placeholder="Buscar asignatura, ej: Base de datos"  ></ion-searchbar>
+
+                  <ion-card  *ngFor="let materia of materias " (click)="openAsignatura(materia)"> 
                       <ion-item>
                         <ion-avatar item-start>
                           <img src="{{materia.avatar}}">
                         </ion-avatar>
-                        <h2><strong> {{materia.Nombre}}</strong></h2>
+                        <h2><strong> {{materia.nombre}}</strong></h2>
                      
                       </ion-item>
                     
@@ -56,13 +62,13 @@
                         <ion-col>
                           <button ion-button icon-start clear small>
                             <ion-icon name="school"></ion-icon>
-                            <div>10 Estudiantes</div>
+                            <div>2 Estudiantes</div>
                           </button>
                         </ion-col>   
                         <ion-col>
                             <button ion-button icon-start clear small>
                               <ion-icon name="book"></ion-icon>
-                              <div>{{materia.Grupo}}</div>
+                              <div>{{materia.grupo}}</div>
                             </button>
                           </ion-col>    
                       </ion-row>      

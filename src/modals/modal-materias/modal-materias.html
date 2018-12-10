@@ -1,23 +1,83 @@
 
 <ion-header [elasticHeader]="ioncontentID">
-
-  <ion-navbar>
-      
-    <ion-title> Asignatura</ion-title>
+  <ion-navbar>      
+    <ion-title> {{title}}</ion-title>
     <ion-buttons end>   
-        <button ion-button icon-only (click)="openModalMaterias()">
+        <!-- <button ion-button icon-only (click)="openModalMaterias()">
             <i class="material-icons">save</i>
-          </button>    
+          </button>     -->
           
         <button ion-button icon-only (click)="dismiss()">
           <ion-icon name="close"></ion-icon>
         </button>      
       </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
+
 <ion-content padding fullscreen #ioncontentID>
+
+  <ion-segment [(ngModel)]="segmentAsignatura" color="primary" (ionChange)="segmentChanged($event)">
+         
+    <ion-segment-button value="asignatura">
+      Asignatura
+    </ion-segment-button>
+    <ion-segment-button value="estudiantes"  [disabled]="validForm">
+      Estudiantes
+    </ion-segment-button>
+  </ion-segment>
+
+    <!-- Formulario Asignatura -->
+    <div *ngIf="segment"  >
+        <form [formGroup]="asignatura" (ngSubmit)="asignaturaForm()">
+            <ion-item>
+                <ion-label>Nombre</ion-label>
+                <ion-input type="text" formControlName="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Grupo</ion-label>
+                <ion-input type="number" formControlName="grupo"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Descripcion</ion-label>
+                <ion-textarea formControlName="descripcion" ></ion-textarea>
+            </ion-item> 
+
+             <button ion-button type="submit" [disabled]="!asignatura.valid" block>Guardar</button>
+        </form>
+    </div>
+
+    <!-- Formulario Estudiantes -->
+    <div  *ngIf="!segment">   
+        <form [formGroup]="estudiantes" (ngSubmit)="estudiantesForm()">
+
+            <ion-label>Estudiante 1</ion-label>            
+            <ion-item>
+                <ion-label>Nombre</ion-label>
+                <ion-input type="text" formControlName="nombre1" disabled></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Cedula</ion-label>
+                <ion-input type="number" formControlName="cedula1" disabled></ion-input>
+            </ion-item>
+            <br>
+            <ion-label>Estudiante 2</ion-label>                        
+             <ion-item> 
+                 <ion-label>Nombre</ion-label>
+                <ion-input type="text" formControlName="nombre2" disabled></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Cedula</ion-label>
+                <ion-input type="number" formControlName="cedula2" disabled></ion-input>       
+            </ion-item>
+             <button ion-button type="submit" [disabled]="!estudiantes.valid" block>Guardar</button>
+        </form>
+     </div>
+
+
 
 </ion-content>

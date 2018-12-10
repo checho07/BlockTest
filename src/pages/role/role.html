@@ -1,21 +1,30 @@
 
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>Rol</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content  class="card-background-page">
-    <ion-card (click)="openDocente()">
-        <img src="../../assets/imgs/docente.jpg"/>
-        <div class="card-title">Docente</div>
-      </ion-card>
+  
+    <ion-slides pager="true" effect="flip" loop="true"   >
+        <ion-slide>
+            <ion-card (click)="openDocente()">
+                <img src="../../assets/imgs/docente.jpg"/>
+                <div class="card-title">Docente</div>
+              </ion-card>
+        </ion-slide>
+        <ion-slide>
+            <ion-card (click)="openEstudiante()">
+                <img src="../../assets/imgs/estudiante.jpg"/>
+                <div class="card-title">Estudiante</div>
+              </ion-card> 
+        </ion-slide>  
+         </ion-slides>
     
-      <ion-card (click)="openEstudiante()">
-        <img src="../../assets/imgs/estudiante.jpg"/>
-        <div class="card-title">Estudiante</div>
-      </ion-card>    
+    
+         
 </ion-content>

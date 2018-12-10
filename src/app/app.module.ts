@@ -1,3 +1,5 @@
+import { EstudiantePage } from './../pages/estudiante/estudiante';
+import { ModalNotasPage } from './../modals/modal-notas/modal-notas';
 import { ModalMateriasPage } from './../modals/modal-materias/modal-materias';
 import { CustomLoadingComponent } from './../components/custom-loading/custom-loading';
 import { PopoverPage } from './../popovers/popover';
@@ -7,7 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ModalPage } from './../pages/modal/modal';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
@@ -37,7 +39,9 @@ messagingSenderId: "501644450496"};
     PopoverPage,
     RolePage,
     DocentePage,
+    EstudiantePage,
     ModalMateriasPage,
+    ModalNotasPage,
     CustomLoadingComponent
   ],
   imports: [
@@ -63,7 +67,9 @@ messagingSenderId: "501644450496"};
     PopoverPage,
     RolePage,
     DocentePage,
+    EstudiantePage,
     ModalMateriasPage,
+    ModalNotasPage,
     CustomLoadingComponent
   ],
   providers: [
