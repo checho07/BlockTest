@@ -1,3 +1,4 @@
+import { EstudiantePage } from './../estudiante/estudiante';
 import { DocentePage } from './../docente/docente';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -23,5 +24,9 @@ export class RolePage {
   }
   openDocente(){
     this.navCtrl.setRoot(DocentePage);
-  }
+  };
+  openEstudiante(){
+    this.navCtrl.setRoot(EstudiantePage);
+  };
+  
 }

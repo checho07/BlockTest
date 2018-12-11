@@ -42,7 +42,7 @@ export class ModalMateriasPage {
                   nombre1: ['Sergio Velandia'],
                   cedula1: ['1031148001'],
                   nombre2: ['Leidy Castiblanco'],
-                  cedula2: ['1023568912'],
+                  cedula2: ['1023568931'],
                 });
         
                };
@@ -129,16 +129,17 @@ export class ModalMateriasPage {
   };
 
   estudiantesForm(){  
-
-    let colEstudiante1 = this.db.collection('estudiantes').doc('1031148001').collection('materias');    
-    let colEstudiante2= this.db.collection('estudiantes').doc('1023568931').collection('materias');
     let formAsignaturaValue = this.asignatura.value;
+    let formEstudianteValue = this.estudiantes.value;
+    let colEstudiante1 = this.db.collection('estudiantes').doc('1031148001').collection('materias').doc(String(formEstudianteValue.cedula1 + formAsignaturaValue.grupo));    
+    let colEstudiante2= this.db.collection('estudiantes').doc('1023568931').collection('materias').doc(String(formEstudianteValue.cedula2 + formAsignaturaValue.grupo)); ;
+  
     let Loading = this.loadingCtrl.create({   
       spinner:"hide",
       content:this.customLoading});
       Loading.present();
 
-      colEstudiante1.add({
+      colEstudiante1.set({
         Nombre:formAsignaturaValue.nombre,
         Grupo:formAsignaturaValue.grupo,
         Id:this.asignaturaId
@@ -146,7 +147,7 @@ export class ModalMateriasPage {
         Loading.dismiss();
       });
       
-      colEstudiante2.add({
+      colEstudiante2.set({
         Nombre:formAsignaturaValue.nombre,
         Grupo:formAsignaturaValue.grupo,
         Id:this.asignaturaId

@@ -90,13 +90,13 @@ export class ModalPage {
       this.result = JSON.stringify(data);
     })
   }
-
-  crearbloque(){
-    let param = this.dato;
-    this.abci.postblock(this.param.trans,param).subscribe((data)=>{
-      this.result = JSON.stringify(data);
-  })
-}
+s
+//   crearbloque(){
+//     let param = this.dato;
+//     this.abci.postblock(this.param.trans,param).subscribe((data)=>{
+//       this.result = JSON.stringify(data);
+//   })
+// }
 
 buscarv(){
   

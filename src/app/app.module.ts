@@ -1,3 +1,4 @@
+import { ModalNotasEstudiantePage } from './../modals/modal-notas-estudiante/modal-notas-estudiante';
 import { EstudiantePage } from './../pages/estudiante/estudiante';
 import { ModalNotasPage } from './../modals/modal-notas/modal-notas';
 import { ModalMateriasPage } from './../modals/modal-materias/modal-materias';
@@ -42,6 +43,7 @@ messagingSenderId: "501644450496"};
     EstudiantePage,
     ModalMateriasPage,
     ModalNotasPage,
+    ModalNotasEstudiantePage,
     CustomLoadingComponent
   ],
   imports: [
@@ -70,6 +72,7 @@ messagingSenderId: "501644450496"};
     EstudiantePage,
     ModalMateriasPage,
     ModalNotasPage,
+    ModalNotasEstudiantePage,
     CustomLoadingComponent
   ],
   providers: [

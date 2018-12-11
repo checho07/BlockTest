@@ -1,13 +1,52 @@
 
-<ion-header>
+<ion-header [elasticHeader]="ioncontentID">
 
-  <ion-navbar>
-    <ion-title>estudiante</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+      
+        
+            <button ion-button  menuToggle   >            
+                <ion-icon name="menu" ></ion-icon>
+              </button>
+          <ion-title>Estudiante</ion-title>
+          <ion-buttons end>   
+              <!-- <button ion-button icon-only (click)="openModalMaterias()">
+                  <ion-icon name="add"></ion-icon>
+                </button>     -->
+                <button ion-button icon-only (click)="searchFn($event)">
+                    <ion-icon name="search"></ion-icon>
+                  </button>       
+              <button ion-button icon-only (click)="presentPopover($event)">
+                <ion-icon name="more"></ion-icon>
+              </button>      
+            </ion-buttons>
+        
+   
+        
+    </ion-navbar>
+  
+  </ion-header>
 
-</ion-header>
 
+<ion-content padding  fullscreen #ioncontentID>
 
-<ion-content padding>
+    <ion-list>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="../../assets/imgs/avatarLeiyd.jpg">
+          </ion-thumbnail>
+          <h2>Leidy Castiblanco</h2>
+          <p>Ingenieria de Sistemas</p>
+          <button ion-button clear item-end (click)="notas1(1023568931)">Ver</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-start>
+              <img src="../../assets/imgs/avatar-luke.png">
+            </ion-thumbnail>
+            <h2>Sergio Velandia</h2>
+            <p>Ingenieria de Sistemas</p>
+            <button ion-button clear item-end (click)="notas1(1031148001)">Ver</button>
+          </ion-item>
+      </ion-list>
 
 </ion-content>
+s
